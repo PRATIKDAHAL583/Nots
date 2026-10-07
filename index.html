@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BA English Notes</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:sans-serif;background:#f4f1ea;color:#222;padding:12px}
+h1{font-size:20px;text-align:center;margin:6px 0}
+.bar{display:flex;gap:8px;margin:10px 0}
+input[type=text]{flex:1;min-width:0;padding:12px;font-size:16px;border:2px solid #1565c0;border-radius:10px}
+button{border:0;border-radius:10px;padding:12px 14px;font-size:16px;color:#fff;background:#1565c0}
+#mic{background:#d32f2f}#mic.on{background:#2e7d32}
+.row{display:flex;gap:10px;align-items:center;font-size:14px;flex-wrap:wrap}
+select{padding:6px;border-radius:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{background:#fff;color:#1a3c8f;border:1px solid #1a3c8f;padding:6px 10px;font-size:13px;border-radius:16px}
+.note{background:#fff;border-left:6px solid #d32f2f;border-radius:10px;padding:12px;margin:12px 0;line-height:1.65}
+.note h3{margin:0 0 8px;color:#d32f2f}
+.note h4{margin:10px 0 4px;color:#1565c0}
+.note p,.note li{color:#1a3c8f;margin:2px 0}
+.note ul{margin:4px 0;padding-left:20px}
+.q{color:#777;font-size:13px}
+#st{font-size:14px;min-height:18px;color:#555}
+</style>
+</head>
+<body>
+<h1>📚 BA English – History of English Literature</h1>
+<div class="row">
+  <label>Voice: <select id="lang"><option value="en-IN">English/Hinglish</option><option value="hi-IN">Hindi</option></select></label>
+  <label><input type="checkbox" id="speak"> Bol kar sunao</label>
+</div>
+<div class="bar">
+  <input type="text" id="txt" placeholder="Topic likho ya 🎤 dabao">
+  <button onclick="ask(txt.value)">Go</button>
+  <button id="mic" onclick="toggleMic()">🎤</button>
+</div>
+<div id="st"></div>
+<div class="chips" id="chips"></div>
+<div id="out"></div>
+
+<script>
+const DB = [];
+
+/* ================= UNIT I ================= */
+DB.push(
+{t:"Feudalism & the Medieval World",k:["feudal","feudalism","medieval","middle ages","serf","manor","three estates"],s:[
+["Intro","Feudalism medieval Europe ka social-political system tha jisme land ke badle service aur loyalty di jati thi. England me ye Norman Conquest (1066) ke baad strong hua."],
+["Key Points",["Pyramid: King → Barons/Lords → Knights → Serfs (villeins).","King sab zameen ka maalik; lords ko land (fief) milti, badle me military service aur loyalty.","Serfs zameen se bandhe the; lord ke liye kaam karte the, azadi nahi thi.","Manor = lord ki estate, economy ki unit.","Society 'three estates' me bati: Clergy (pray), Nobles (fight), Peasants (work).","Church bahut powerful: education, law aur daily life par control.","Black Death (1348) aur Peasants' Revolt (1381) se feudalism kamzor hua."]],
+["Authors/Works","Langland ki Piers Plowman me peasants ka dukh; Chaucer ki Canterbury Tales me medieval society ka poora cross-section."],
+["Exam Answer","Feudalism ek hierarchical system tha jisme king se serf tak sab loyalty aur service se jude the. Land power ka source thi. Church ke saath milkar isne medieval life aur literature (romances, allegories, Chaucer) ko shape kiya. Black Death aur 1381 ke revolt ke baad iska decline shuru hua aur Renaissance ki taraf rasta khula."]]},
+
+{t:"Chivalry, Religion & Oral Traditions",k:["chivalry","chivalric","knight","oral","oral tradition","religion","ballad","beowulf","minstrel","romance","arthur"],s:[
+["Intro","Medieval literature ke teen bade stambh: chivalry (knight ka code), religion (Christianity) aur oral tradition (bolkar sunai gayi kahaniya)."],
+["Key Points",["Chivalry: bravery, honour, loyalty, courtesy, women ki raksha, Church ki seva.","Knight ke ideals: 'God, King, Lady'. Courtly love ka bhi isse link.","Religion: Bible, saints' lives, sermons, miracle/morality plays; death aur salvation ka dar.","Oral tradition: likhne-padhne wale kam the, to bards aur minstrels kahani gate/sunate the.","Oral features: repetition, formulas, alliteration, simple rhythm (yaad rakhne ke liye).","Ballads: anonymous, short, story-telling songs (Robin Hood, Chevy Chase).","Baad me ye oral stories likhit hui aur manuscripts bani; printing ke baad aur phaili."]],
+["Authors/Works","Beowulf (Old English epic), Sir Gawain and the Green Knight, Arthurian romances (Malory ka Le Morte d'Arthur), Chaucer ka Knight."],
+["Exam Answer","Medieval literature chivalry, religion aur oral culture se bani. Chivalry ne knight ko ideal hero banaya, religion ne moral aur spiritual theme diye, aur oral tradition ne epics aur ballads ko zinda rakha. Beowulf, Gawain aur Arthurian romances isi ke examples hain."]]},
+
+{t:"Geoffrey Chaucer",k:["chaucer","canterbury","wife of bath","father of english poetry","tabard","pardoner","miller","prologue"],s:[
+["Intro","Geoffrey Chaucer (c.1343-1400) ko 'Father of English Poetry' kaha jata hai. Unhone Middle English me likh kar English ko literary language banaya."],
+["Key Points",["Court se jude: diplomat, Customs controller; Westminster Abbey (Poets' Corner) me dafan.","Canterbury Tales: ~30 pilgrims, Tabard Inn (Southwark) se Canterbury (St. Thomas Becket ki shrine) tak.","Frame narrative: har pilgrim ek kahani sunata hai; plan 100+ kahaniyo ka tha, ~24 hi likhi.","General Prologue me pilgrims ke satirical, realistic portraits: Knight, Squire, Prioress, Monk, Miller, Wife of Bath, Pardoner.","Satire: Church ki corruption (Pardoner, Monk), class aur gender ka mazaak.","Style: heroic couplet (iambic pentameter), humour, irony, human nature ki samajh.","Teen phases: French, Italian, English."]],
+["Authors/Works","The Canterbury Tales, Troilus and Criseyde, The Book of the Duchess, The Parliament of Fowls, The House of Fame, The Legend of Good Women."],
+["Exam Answer","Chaucer English poetry ke pita hain. Canterbury Tales me unhone 14th century ki society ka jeevant chitra diya. Unki khasiyat: realism, humour, irony, character-portrayal aur versatile style. Unhone heroic couplet ki neev rakhi aur English ko prestige di."]]},
+
+{t:"William Langland",k:["langland","piers","plowman","ploughman","dream vision","do-well"],s:[
+["Intro","William Langland (c.1332-1386) 14th century ke poet, jinki ek hi badi rachna Piers Plowman hai, jo dream allegory me likhi gayi."],
+["Key Points",["Narrator Will sapne dekhta hai; saint-sa Piers Plowman sachchai ka guide hai.","Search: sachcha Christian jeevan kaise jiye (Do-Well, Do-Better, Do-Best).","Church ke corrupt priests, pardoners aur rich ki sakht criticism.","Peasants ke dukh ke prati sahanubhuti; 1381 ke revolt ke time par kaafi padhi gayi.","Alliterative verse (Old English style), Chaucer ke couplet se alag.","Poem ke teen versions: A, B, C text (revisions)."]],
+["Authors/Works","Piers Plowman. Compare: Chaucer (urban, courtly, humorous) vs Langland (religious, serious, peasant-sympathetic)."],
+["Exam Answer","Langland ki Piers Plowman medieval dream allegory ka shreshth udaharan hai. Isme Church ki bhrashtata aur samaj ka anyay dikhaya gaya hai. Alliterative verse aur moral intensity unhe Chaucer se alag karti hai."]]},
+
+{t:"John Gower",k:["gower","confessio","amantis","vox clamantis","speculum"],s:[
+["Intro","John Gower (c.1330-1408) Chaucer ke dost aur samkaleen the; Chaucer ne Troilus me unhe 'moral Gower' kaha."],
+["Key Points",["Teen bhashao me likha: French (Speculum Meditantis), Latin (Vox Clamantis), English (Confessio Amantis).","Confessio Amantis: Lover aur Genius (priest of Venus) ke beech baatchit; seven deadly sins ke hisab se 100+ kahaniya.","Vox Clamantis me 1381 ke Peasants' Revolt ka varnan aur samaj ki aalochana.","Style: simple, clear, octosyllabic couplets; Chaucer jaisa humour nahi, zyada didactic.","Courtly love + morality ka mel."]],
+["Authors/Works","Confessio Amantis, Vox Clamantis, Speculum Meditantis (Mirour de l'Omme)."],
+["Exam Answer","Gower ek moralist poet the jinhone teen bhashao me likha. Confessio Amantis courtly love aur morality ki kahaniyo ka sangrah hai. Wo Chaucer ke samkaleen the, par unki shaili zyada simple aur upadeshatmak thi."]]},
+
+{t:"Humanism, Reformation & the Printing Press",k:["humanism","humanist","reformation","printing","press","caxton","gutenberg","renaissance","luther","erasmus","utopia","henry viii"],s:[
+["Intro","Renaissance (14th-17th c.) ka matlab 're-birth' of classical learning. Humanism, Reformation aur printing press ne medieval soch badal di."],
+["Key Points",["Humanism: Greek-Roman classics ka adhyayan; insan aur uski potential par focus (God-centred se man-centred).","Humanists: Erasmus (In Praise of Folly), Thomas More (Utopia, 1516), Colet, Sir Thomas Elyot.","Reformation: Martin Luther ne 1517 me 95 Theses likhi; Church ki indulgences ka virodh.","England me Henry VIII ne Pope se tod kar Church of England banayi (Act of Supremacy, 1534).","English Bible: Tyndale, Coverdale; King James Bible (1611) ne English prose par bada asar dala.","Printing press: Gutenberg (~1450); William Caxton 1476 me England laye, pehli printed book 'Dictes or Sayengis'.","Asar: books sasti hui, literacy badhi, English standardise hui, ideas tezi se phaile."]],
+["Authors/Works","Thomas More: Utopia; Erasmus: In Praise of Folly; Tyndale: English New Testament; Caxton ne Chaucer aur Malory (Le Morte d'Arthur) chhape."],
+["Exam Answer","Humanism ne insan ko centre me rakha, Reformation ne Church ki satta ko chunauti di aur printing press ne gyan ko aam logo tak pahunchaya. In teeno ne milkar Renaissance ko janm diya aur English literature me Shakespeare ke age ke liye zameen taiyar ki."]]},
+
+{t:"Elizabethan & Metaphysical Poetry",k:["elizabethan","metaphysical","donne","marvell","herbert","spenser","faerie queene","conceit","sidney","shakespeare","crashaw","vaughan","cowley","johnson","coy mistress"],s:[
+["Intro","Elizabethan age (1558-1603) English literature ka 'Golden Age' hai. Uske baad 17th c. me Metaphysical poetry aayi, jisme wit aur intellect ka kamaal tha."],
+["Key Points",["Elizabethan: poetry, drama aur prose sab me utkarsh. Themes: love, patriotism, beauty, mortality.","Poets: Spenser (The Faerie Queene, 'Poet's poet'), Sidney (Astrophil and Stella, Defence of Poesy), Shakespeare (Sonnets), Marlowe.","Sonnet craze: Wyatt aur Surrey se shuru, Sidney/Spenser/Shakespeare tak.","Metaphysical poets: John Donne, George Herbert, Henry Vaughan, Andrew Marvell, Richard Crashaw, Abraham Cowley.","Term 'metaphysical' Dryden (aur baad me Dr. Johnson, Lives of the Poets) ne negative arth me use kiya.","Features: conceit (lambi, ajeeb tulna), wit, paradox, argument-style, colloquial tone, thought + feeling ka mel.","T.S. Eliot ('The Metaphysical Poets', 1921) ne inhe dobara mahatva dilaya: 'dissociation of sensibility' ka concept."]],
+["Authors/Works","Donne: The Flea, The Canonization, A Valediction: Forbidding Mourning (compass conceit). Marvell: To His Coy Mistress. Herbert: The Temple. Spenser: The Faerie Queene."],
+["Exam Answer","Elizabethan period me poetry me renaissance ka josh tha, jabki Metaphysical poetry ne intellect, wit aur conceit ko mukhya banaya. Donne is school ke leader the. Dr. Johnson ne 'metaphysical' term ko nindak arth me diya, par T.S. Eliot ne unki khubi ko pehchana."]]}
+);
+
+/* ========= UNIT II YAHA PASTE KARO (DB.push(...)) ========= */
+/* ========= UNIT III YAHA PASTE KARO ========= */
+/* ========= UNIT IV YAHA PASTE KARO ========= */
+
+const $=id=>document.getElementById(id), out=$("out"), st=$("st"), txt=$("txt"), mic=$("mic");
+
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+function find(q){
+  q=q.toLowerCase(); let best=null,score=0;
+  for(const d of DB){let s=0; for(const key of d.k) if(q.includes(key)) s+=key.length; if(s>score){score=s;best=d;}}
+  return best;
+}
+
+function render(d){
+  let h='<h3>'+esc(d.t)+'</h3>';
+  for(const [head,body] of d.s){
+    h+='<h4>'+esc(head)+'</h4>';
+    h+=Array.isArray(body)?'<ul>'+body.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p>'+esc(body)+'</p>';
+  }
+  return h;
+}
+function plain(d){return d.t+". "+d.s.map(([h,b])=>h+". "+(Array.isArray(b)?b.join(". "):b)).join(". ");}
+
+function ask(q){
+  q=(q||"").trim(); if(!q) return;
+  if(rec&&on){try{rec.abort()}catch(e){}} on=false; mic.classList.remove("on");
+  const d=find(q);
+  const html=d?'<div class="note"><div class="q">🗣 '+esc(q)+'</div>'+render(d)+'</div>'
+              :'<div class="note"><div class="q">🗣 '+esc(q)+'</div>Is topic ka note abhi nahi hai. Neeche ke topics me se chuno ya dusra naam bolo.</div>';
+  out.insertAdjacentHTML("afterbegin",html);
+  txt.value=""; st.textContent="";
+  window.scrollTo(0,0);
+  if($("speak").checked) say(d?plain(d):"Note nahi mila. Dobara bolo.");
+}
+
+function say(t){
+  if(!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t); u.lang=$("lang").value; u.rate=.95; speechSynthesis.speak(u);
+}
+
+// topic chips
+function chips(){ $("chips").innerHTML=DB.map((d,i)=>'<button class="chip" onclick="ask(DB['+i+'].t)">'+esc(d.t)+'</button>').join(""); }
+chips();
+
+// voice
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let rec=null,on=false;
+function toggleMic(){
+  if(!SR){st.textContent="Voice ke liye Chrome use karo.";return}
+  if(on){rec.stop();return}
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  rec=new SR(); rec.lang=$("lang").value; rec.interimResults=true;
+  rec.onstart=()=>{on=true;mic.classList.add("on");st.textContent="Sun raha hoon... topic bolo 🎤"};
+  rec.onresult=e=>{let s="";for(const r of e.results)s+=r[0].transcript;txt.value=s;
+    if(e.results[e.results.length-1].isFinal) ask(s);};
+  rec.onerror=e=>{st.textContent="Mic error: "+e.error};
+  rec.onend=()=>{on=false;mic.classList.remove("on")};
+  rec.start();
+}
+txt.addEventListener("keydown",e=>{if(e.key==="Enter")ask(txt.value)});
+</script>
+</body>
+</html>
